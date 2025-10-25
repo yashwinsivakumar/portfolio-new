@@ -83,8 +83,9 @@
 }
 .about-left p {
    font-size: 2rem;
-   align-items: justify;
+   text-align: justify;
 }
+
 /* Custom About section layout */
 .custom-about-layout {
    display: flex;
@@ -430,6 +431,7 @@ span {
   font-size: 1.6rem;
 }
 
+
 /* 🖥️ Desktop layout adjustment */
 
 @media (min-width: 1024px) {
@@ -458,11 +460,10 @@ span {
       padding-bottom: 2.5rem;
       min-height: unset;
    }
-   @media (max-width: 768px) {
-      .home-content {
-         margin-top: -1.5rem;
-      }
+   .home-content {
+      margin-top: -1.5rem;
    }
+
    .contact {
       padding-top: 10rem;
       padding-bottom: 2.5rem;
@@ -509,8 +510,8 @@ span {
 
 .about-flex {
    display: flex;
-   justify-content: center; /* Centers the two main sections horizontally */
-   align-items: center;     /* Vertically centers them */
+   justify-content: center; 
+   align-items: center;     
    gap: 6rem;
    flex-wrap: wrap;
    width: 100%;
@@ -546,14 +547,14 @@ span {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      /* Responsive override for mobile is handled in media query above */
+      
 }
 
 .skills-card-container {
   flex: 1 1 420px;
   display: flex;
-  justify-content: center;  /* Center the skill grid horizontally */
-  align-items: center;      /* Center it vertically */
+  justify-content: center;  
+  align-items: center;      
   min-width: 370px;
   min-height: 370px;
 }
@@ -887,16 +888,19 @@ span {
 
 }
 
-blog-text .blog-title:hover{
+.blog-text .blog-title:hover {
    color: var(--main-color);
    transition: all ease 0.3s;
+
 }
+
 
 .blog-text p{
    color: #323946;
    font-size: 0.9rem;
    display: -webkit-box;
    -webkit-line-clamp: 3;
+   line-clamp: 3;
    -webkit-box-orient: vertical;
    overflow: hidden;
    text-overflow: ellipsis;
