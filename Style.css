@@ -890,7 +890,6 @@ span {
 blog-text .blog-title:hover{
    color: var(--main-color);
    transition: all ease 0.3s;
-
 }
 
 .blog-text p{
@@ -898,7 +897,6 @@ blog-text .blog-title:hover{
    font-size: 0.9rem;
    display: -webkit-box;
    -webkit-line-clamp: 3;
-   line-clamp: 3;
    -webkit-box-orient: vertical;
    overflow: hidden;
    text-overflow: ellipsis;
