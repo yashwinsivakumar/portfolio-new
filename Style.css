@@ -150,11 +150,7 @@
    background-size: contain;
    background-repeat: no-repeat;
 }
-/* Example skill logos, replace with your own images or SVGs */
-#logo-html { background-image: url('images/1234.svg'); }
-#logo-css { background-image: url('images/sdg.png'); }
-#logo-react { background-image: url('images/portfolio.png'); }
-#logo-js { background-image: url('images/task.png'); }
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
@@ -196,6 +192,66 @@ section{
    padding: 10rem 9% 2rem;
 }
 
+/* Keyframe animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 2px var(--main-color),
+                    0 0 5px var(--main-color);
+    }
+    50% {
+        box-shadow: 0 0 8px var(--main-color),
+                    0 0 12px var(--main-color),
+                    0 0 15px var(--main-color);
+    }
+}
+
+/* Apply to section */
+section {
+    animation: fadeIn 0.8s ease-in;
+}
+
+
+/* Apply to home image */
+.home-img img {
+    animation: glow 3s infinite;
+}
+
+/* Apply to social icons */
+.social-icons .icon:nth-child(2n) {
+    animation: pulse 2s infinite;
+}
+
 /* Header styling */
 .header {
   position: fixed;
@@ -232,14 +288,28 @@ section{
 
 /* Logo styling */
 .logo {
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: var(--main-color);
-  letter-spacing: 2px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: color 0.3s;
-  white-space: nowrap; /* Prevents logo wrap pushing layout */
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--main-color);
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s;
+    white-space: nowrap;
+    position: relative;
+}
+
+/* Pseudo elements with generated content */
+.logo::before {
+    content: "< ";
+    color: var(--main-color);
+    font-weight: 900;
+}
+
+.logo::after {
+    content: " />";
+    color: var(--main-color);
+    font-weight: 900;
 }
 
 /* Navbar container */
@@ -251,15 +321,38 @@ section{
   justify-content: center;
 }
 
-/* Links in navbar */
-.navbar a {
-  font-weight: 600;
-  font-size: 1.7rem;
-  color: var(--text-color);
-  padding: 0.3rem 0.8rem;
-  border-radius: 1.5rem;
-  position: relative;
-  transition: color 0.3s, background 0.3s;
+/* Adjacent sibling combinator */
+.menu-toggle:checked + #menu-icon + .navbar {
+    display: flex;
+}
+
+/* General sibling combinator */
+.menu-toggle:checked ~ .navbar {
+    animation: slideInFromLeft 0.3s ease-out;
+}
+
+/* Child combinator - Direct children only */
+.navbar > a {
+    font-weight: 600;
+    font-size: 1.7rem;
+    color: var(--text-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 1.5rem;
+    position: relative;
+    transition: color 0.3s, background 0.3s;
+}
+
+/* Structural selectors */
+.navbar > a:first-child {
+    margin-left: 0;
+}
+
+.navbar > a:last-child {
+    margin-right: 0;
+}
+
+.skill-card:only-child {
+    grid-column: span 2;
 }
 
 .navbar a.active {
@@ -550,71 +643,7 @@ span {
       
 }
 
-.skills-card-container {
-  flex: 1 1 420px;
-  display: flex;
-  justify-content: center;  
-  align-items: center;      
-  min-width: 370px;
-  min-height: 370px;
-}
 
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 2.2rem;
-  background: linear-gradient(135deg, #232323 0%, #323946 100%);
-  border-radius: 2.2rem;
-  box-shadow: 0 8px 32px rgba(249, 0, 77, 0.13);
-  padding: 3.2rem;
-  min-width: 370px;
-  min-height: 370px;
-  max-width: 480px;
-  max-height: 480px;
-  place-items: center;
-}
-
-/* Skill cards */
-.skill-card {
-  background: rgba(255,255,255,0.04);
-  border-radius: 1.2rem;
-   box-shadow: 0 2px 12px rgba(30,144,255,0.09);
-  width: 120px;
-  height: 120px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.7rem;
-  transition: transform 0.18s, box-shadow 0.18s;
-}
-
-.skill-card:hover {
-  transform: translateY(-6px) scale(1.06);
-   box-shadow: 0 10px 30px rgba(30,144,255,0.18), 0 0 18px 4px var(--main-color);
-   border-color: rgba(30,144,255,0.18);
-  z-index: 5;
-}
-
-.skill-logo {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 0.2rem;
-  background: rgba(255,255,255,0.08);
-  border-radius: 0.6rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.8rem;
-}
-
-.skill-card span {
-  color: var(--main-color);
-  font-weight: 600;
-  font-size: 1.2rem;
-  letter-spacing: 1px;
-}
 
 /* Headings & text */
 .heading {
@@ -920,7 +949,7 @@ span {
    transition: all ease 0.3s;
 
 }
-/* Main card container */
+/* Contact section */
 
 .contact-intro {
   text-align: center;
@@ -985,7 +1014,9 @@ textarea {
     min-height: 160px;
 }
 
-/* Submit button style (unchanged, just for context) */
+
+
+/* Submit button style  */
 .btn {
     align-self: center;
     width: auto;
