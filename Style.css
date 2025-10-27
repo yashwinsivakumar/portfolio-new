@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 .about-stats {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -60,7 +62,6 @@
 }
 
 
-
 .about-heading-wrapper {
    width: 100%;
    display: flex;
@@ -74,9 +75,7 @@
    font-size: 5rem;
    margin: 0 auto;
 }
-.about-left .center-heading {
-   font-size: 2.5rem;
-}
+
 .about-left .webdev-title {
    font-size: 3.2rem;
    line-height: 1.2;
@@ -116,43 +115,6 @@
    text-align: center;
    margin-bottom: 1rem;
 }
-/* 2x2 grid for skills section on About.html */
-.skills-grid-2x2 {
-   display: grid;
-   grid-template-columns: 1fr 1fr;
-   grid-template-rows: 1fr 1fr;
-   gap: 2rem;
-   justify-items: center;
-   align-items: center;
-   margin-top: 2rem;
-}
-
-.skill-card {
-   background: #fff;
-   border-radius: 1rem;
-   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-   padding: 2.5rem 2rem;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   min-width: 160px;
-   min-height: 160px;
-   transition: transform 0.2s;
-}
-.skill-card:hover {
-   transform: translateY(-6px) scale(1.05);
-   box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-}
-.skill-logo {
-   width: 40px;
-   height: 40px;
-   margin-bottom: 1rem;
-   background-size: contain;
-   background-repeat: no-repeat;
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
 
 /* General reset and base styles */
 *{
@@ -248,7 +210,7 @@ section {
 }
 
 /* Apply to social icons */
-.social-icons .icon:nth-child(2n) {
+.social-icons .icon.icon:nth-child(1n) {
     animation: pulse 2s infinite;
 }
 
@@ -351,9 +313,6 @@ section {
     margin-right: 0;
 }
 
-.skill-card:only-child {
-    grid-column: span 2;
-}
 
 .navbar a.active {
   color: var(--main-color);
@@ -524,7 +483,6 @@ span {
   font-size: 1.6rem;
 }
 
-
 /* 🖥️ Desktop layout adjustment */
 
 @media (min-width: 1024px) {
@@ -631,40 +589,11 @@ span {
    }
 }
 
-.about-content {
-      flex: 1 1 340px;
-      max-width: 500px;
-      text-align: left;
-      margin: 0 auto;
-      align-items: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      
-}
-
-
-
 /* Headings & text */
 .heading {
   text-align: center;
   font-size: 5rem;
   margin-top: 5.5rem;
-}
-
-.about-content h2 {
-  text-align: left;
-  line-height: 1.2;
-  font-size: 7.5rem;
-}
-
-.about-content h3 {
-  font-size: 3.5rem;
-}
-
-.about-content p {
-  font-size: 1.6rem;
-  margin: 2rem 0 3rem;
 }
 
 /* ✅ Responsive Design */
@@ -675,43 +604,10 @@ span {
     text-align: center;
   }
 
-  .about-content {
-    margin-right: 0;
-    text-align: center;
-  }
-
-  .skills-card-container {
-    justify-content: center;
-    align-items: center;
-    margin-top: 3rem;
-  }
-
-  .skills-grid {
-    min-width: 300px;
-    min-height: 300px;
-    padding: 2.5rem;
-    gap: 1.8rem;
-  }
-
-  .heading {
-    font-size: 4rem;
-  }
-
-  .about-content h2 {
-    font-size: 5.5rem;
-    text-align: center;
-  }
-
-  .about-content h3 {
-    font-size: 2.8rem;
-  }
-
-  .about-content p {
-    font-size: 1.5rem;
-    text-align: center;
+   .heading {
+   font-size: 4rem;
   }
 }
-
 
 /* Portfolio section */
 .portfolio{
@@ -750,8 +646,6 @@ span {
 .item-card{
    border-radius: 1.8rem;
    overflow: hidden;
-   
-   
 }
 
 .item-card .portfolio-img img,
@@ -786,7 +680,7 @@ span {
 }
 
 
-/* Card hover effect matches button: lift and strong pink glow */
+/* Card hover effect matches button: lift and strong blue glow */
 .portfolio-box:hover, .blog-box:hover {
    transform: translateY(-6px);
    box-shadow: 0 10px 30px rgba(30,144,255,0.18), 0 0 18px 4px var(--main-color);
@@ -809,57 +703,6 @@ span {
 .portfolio-box img{
    width: 100%;
    transition: .5s ease;
-}
- .portfolio-box .portfolio-layer{
-   position: absolute;
-   bottom: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   background: linear-gradient(rgba(0, 0, 0, .1), var(--main-color));
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction: column;
-   text-align: center;
-   padding: 0 4rem;
-   transform: translateY(100%);
-   transition: .5s ease;
-
-} 
-
-.portfolio-box:hover .portfolio-layer{
-   transform: translateY(0);
-}
-
-
-.portfolio-layer h4{
-   font-size: 3rem;
-}
-
-
-.portfolio-layer p{
-   font-size: 1.6rem;
-   margin: .3rem 0 1rem;
-}
-
-
-.portfolio-layer a{
-   display: inline-flex;
-   justify-content: center;
-   align-items: center;
-   width: 5rem;
-   height: 5rem;
-   background: var(--text-color);
-   border-radius: 50%;
-
-}
-
-.portfolio-layer a i{
-   font-size: 2rem;
-   color: var(--second-bg-color);
-
-
 }
 
 /* Blog styling */
@@ -923,7 +766,6 @@ span {
 
 }
 
-
 .blog-text p{
    color: #323946;
    font-size: 0.9rem;
@@ -939,15 +781,6 @@ span {
 .blog-box .item-card{
    background: transparent;
    border-radius: 0;
-}
-.blog-text a{
-   color: #000000;
-}
-
-.blog-text a:hover{
-   color: var(--main-color);
-   transition: all ease 0.3s;
-
 }
 /* Contact section */
 
@@ -1014,8 +847,6 @@ textarea {
     min-height: 160px;
 }
 
-
-
 /* Submit button style  */
 .btn {
     align-self: center;
@@ -1050,7 +881,7 @@ textarea {
    box-shadow: 0 -2px 8px rgba(0,0,0,0.04);
 }
 
-main, .home, .about, .contact, .portfolio {
+.home, .about, .contact, .portfolio {
    min-height: calc(100vh - 70px - 60px); /* header ~70px, footer ~60px */
    box-sizing: border-box;
    padding-bottom: 80px; /* Prevent content from being hidden behind footer */
@@ -1076,10 +907,6 @@ main, .home, .about, .contact, .portfolio {
 
    section{
        padding: 10rem 3% 2rem;
-   }
-
-   .services {
-       padding: 7rem;
    }
 
    .portfolio{
@@ -1131,10 +958,6 @@ main, .home, .about, .contact, .portfolio {
        display: none;
    }
 
-   .navbar.active{
-       display: block;
-   }
-
    .navbar a {
        display: block;
        font-size: 2rem;
@@ -1144,11 +967,6 @@ main, .home, .about, .contact, .portfolio {
    
    .about{
        flex-direction: column-reverse;
-   }
-
-   .services h2{
-       margin-bottom: 3rem;
-
    }
 
    .portfolio h2 {
@@ -1174,8 +992,6 @@ main, .home, .about, .contact, .portfolio {
     }
 }
 
-
-
 @media(max-width: 617px) {
    .portfolio-container{
        grid-template-columns: 1fr;
@@ -1185,10 +1001,6 @@ main, .home, .about, .contact, .portfolio {
 @media(max-width: 450px) {
    html {
        font-size: 50%;
-   }
-
-   .contact form .input-box input {
-      width: 100%; 
    }
 }
 
